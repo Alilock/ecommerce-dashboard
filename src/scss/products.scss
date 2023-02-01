@@ -3,12 +3,14 @@ thead {
   width: 100%;
   display: flex;
   justify-content: space-between;
+
   tr {
     width: 100%;
     display: flex;
     justify-content: space-around;
   }
 }
+
 .my__box {
   padding: 20px 0px;
   margin-bottom: 24px;
@@ -21,15 +23,18 @@ thead {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
     .image__td {
       width: 100px;
       height: 100px;
       display: flex;
       align-items: center;
+
       img {
         width: 100%;
       }
     }
+
     tr {
       width: 100%;
       display: flex;
@@ -37,7 +42,15 @@ thead {
       border: none;
       display: flex;
       align-items: center;
-    
+
     }
+  }
+}
+
+.action {
+  background-color: red;
+
+  i {
+    font-size: large;
   }
 }

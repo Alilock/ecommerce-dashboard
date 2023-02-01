@@ -12,6 +12,18 @@ const sidebarNav = [
     text: "home page details",
   },
   {
+    link: "./genders",
+    section: "Genders",
+    icon: <i class='bx bx-male-female' ></i>,
+    text: "Genders"
+  },
+  {
+    link: "./categories",
+    section: "Categories",
+    icon: <i class='bx bx-category-alt' ></i>,
+    text: "Categories"
+  },
+  {
     link: "/orders",
     section: "orders",
     icon: <i className="bx bx-receipt"></i>,

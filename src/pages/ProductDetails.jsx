@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Formik } from "formik";
 import "../scss/productdetails.scss";
 import penPng from "../assets/images/Vector.png";
 import plusPng from "../assets/images/plus.png";
@@ -11,7 +12,7 @@ import { AiOutlineUpload } from "react-icons/ai";
 const ProductDetails = () => {
   const [change, setChange] = useState(true);
   const [isActive, setIsActive] = useState(false);
-  useEffect(() => {});
+  useEffect(() => { });
   return (
     <div className="productdetails">
       <div className="productdetails__images">
@@ -35,7 +36,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <label class="custom-file-upload">
-        <input type="file" accept="image/*" />
+        <input type="file" accept="image/*" />  
         {/* <span> Upload image</span> <AiOutlineUpload /> */}
       </label>
       <div className="productdetails__title">
