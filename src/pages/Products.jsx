@@ -4,7 +4,7 @@ import ReactLoading from 'react-loading';
 import { useNavigate } from "react-router-dom";
 import "../scss/products.scss";
 import Swal from 'sweetalert2'
-import { deleteProduct, fetchAllProducts, getAllProducts, getLoading } from '../features/products/productSlice'
+import { getIsDeleting, deleteProduct, fetchAllProducts, getAllProducts, getLoading } from '../features/products/productSlice'
 
 
 
@@ -13,10 +13,11 @@ const Products = () => {
 
   const products = useSelector(getAllProducts);
   const loading = useSelector(getLoading)
+  const isDeleting = useSelector(getIsDeleting)
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllProducts())
-  }, [dispatch])
+  }, [dispatch, isDeleting])
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -30,11 +31,14 @@ const Products = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteProduct(id))
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
+        if (isDeleting) {
+
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
       }
     })
   }

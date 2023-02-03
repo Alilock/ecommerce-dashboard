@@ -5,7 +5,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
     productsData: [],
     loading: false,
-    isDeleted: false
+    isDeleting: false
 }
 
 export const fetchAllProducts = createAsyncThunk("products/getAPI", async () => {
@@ -19,7 +19,7 @@ export const saveNewProduct = createAsyncThunk("products/getApi", async (payload
     return response.data
 })
 export const deleteProduct = createAsyncThunk("products/deleteApi", async (payload) => {
-    const response = await axios.delete("https://localhost:7065/api/product", payload)
+    const response = await axios.delete(`https://newramana.azurewebsites.net/api/product/${payload}`)
     return response.data
 })
 export const productSlice = createSlice({
@@ -47,14 +47,15 @@ export const productSlice = createSlice({
                 state.loading = false
             })
             .addCase(deleteProduct.fulfilled, (state, action) => {
-                state.isDeleted = false
+                state.isDeleting = false
             })
             .addCase(deleteProduct.pending, (state) => {
-                state.isDeleted = true
+                state.isDeleting = true
             })
     }
 })
 
 export const getAllProducts = (state) => state.product.productsData;
 export const getLoading = (state) => state.product.loading
+export const getIsDeleting= (state)=>state.product.isDeleting
 export default productSlice.reducer
