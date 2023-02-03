@@ -16,7 +16,7 @@ import { store } from "../src/features/store/index";
 import CreateGender from "./pages/CreateGender";
 import Categories from "./pages/Categories";
 import CreateCategory from "./pages/CreateCategory";
-import CreateProducts from "./pages/CreateProducts";
+import CreateProducts from "./pages/CreateProduct";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
 function App() {

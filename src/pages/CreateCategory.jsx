@@ -22,14 +22,14 @@ const CreateCategory = () => {
     }, [dispatch])
     const submitHandler = (data) => {
         console.log(data);
-            var req = new FormData()
-            req.append('Name', data.Name)
-            req.append('Image', data.Image)
-            req.append('ParentId', data.ParentId)
-            dispatch(saveNewCategory(req));
-            if (!loading) {
-                navigate('/categories')
-            }
+        var req = new FormData()
+        req.append('Name', data.Name)
+        req.append('Image', data.Image)
+        req.append('ParentId', data.ParentId)
+        dispatch(saveNewCategory(req));
+        if (!loading) {
+            navigate('/categories')
+        }
     }
 
     return (

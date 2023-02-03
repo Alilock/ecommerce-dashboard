@@ -3,7 +3,10 @@ import React, { useEffect } from "react";
 import ReactLoading from 'react-loading';
 import { useNavigate } from "react-router-dom";
 import "../scss/products.scss";
-import { fetchAllProducts, getAllProducts, getLoading } from '../features/products/productSlice'
+import Swal from 'sweetalert2'
+import { deleteProduct, fetchAllProducts, getAllProducts, getLoading } from '../features/products/productSlice'
+
+
 
 const Products = () => {
   const navigate = useNavigate();
@@ -14,7 +17,28 @@ const Products = () => {
   useEffect(() => {
     dispatch(fetchAllProducts())
   }, [dispatch])
-  console.log(products);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deleteProduct(id))
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
+
   return (
 
     <div className="products">
@@ -74,6 +98,10 @@ const Products = () => {
                           className="border-0 bg-light"
                         >
                           edit
+                        </button>
+                        <br />
+                        <button onClick={() => handleDelete(p.id)}>
+                          delete
                         </button>
                       </td>
                     </tr>

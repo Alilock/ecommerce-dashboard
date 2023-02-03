@@ -9,13 +9,11 @@ const initialState = {
 
 export const fetchAllGenders = createAsyncThunk("genders/getAPI", async () => {
     const response = await axios.get("https://newramana.azurewebsites.net/api/gender");
-
     return response.data.data;
 });
 
 export const saveNewGender = createAsyncThunk("genders/getApi", async (payload) => {
     const response = await axios.post("https://newramana.azurewebsites.net/api/gender", payload)
-    console.log(payload);
     return response.data
 })
 export const genderSlice = createSlice({

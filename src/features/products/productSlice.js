@@ -4,19 +4,22 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
     productsData: [],
-    loading: false
+    loading: false,
+    isDeleted: false
 }
 
 export const fetchAllProducts = createAsyncThunk("products/getAPI", async () => {
     const response = await axios.get("https://newramana.azurewebsites.net/api/product");
-    console.log(response);
-    console.log('sa');
     return response.data.data;
 });
 
 export const saveNewProduct = createAsyncThunk("products/getApi", async (payload) => {
     const response = await axios.post("https://newramana.azurewebsites.net/api/product", payload)
-    console.log(payload);
+    console.log('res', response);
+    return response.data
+})
+export const deleteProduct = createAsyncThunk("products/deleteApi", async (payload) => {
+    const response = await axios.delete("https://localhost:7065/api/product", payload)
     return response.data
 })
 export const productSlice = createSlice({
@@ -42,6 +45,12 @@ export const productSlice = createSlice({
             })
             .addCase(saveNewProduct.fulfilled, (state) => {
                 state.loading = false
+            })
+            .addCase(deleteProduct.fulfilled, (state, action) => {
+                state.isDeleted = false
+            })
+            .addCase(deleteProduct.pending, (state) => {
+                state.isDeleted = true
             })
     }
 })
