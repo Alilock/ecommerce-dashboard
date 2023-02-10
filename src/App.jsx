@@ -19,6 +19,7 @@ import CreateCategory from "./pages/CreateCategory";
 import CreateProducts from "./pages/CreateProduct";
 import Settings from "./pages/Settings";
 import Login from "./pages/Login";
+import About from "./pages/About";
 function App() {
   return (
     <Provider store={store}>
@@ -28,6 +29,8 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="orders" element={<Orders />} />
             <Route path="products" element={<Products />} />
+            <Route path="about" element={<About />} />
+
             <Route path="login" element={<Login />} />
             <Route path="customers" element={<Users />} />
             <Route path="settings" element={<Settings />} />

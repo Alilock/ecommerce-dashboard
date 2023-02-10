@@ -3,6 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import "../scss/login.scss";
+import logo from "../assets/images/logo.png";
 const Login = () => {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -17,7 +18,6 @@ const Login = () => {
         }
       );
       alert("no error");
-      console.log(data);
     } catch (error) {
       alert("error");
     }
@@ -25,26 +25,40 @@ const Login = () => {
 
   return (
     <div className="login">
-      <h1>login</h1>
+      <img src={logo} alt="" />
       <div className="login__inputs">
-        <label htmlFor="username">username</label>
+        <center>
+          <h1 className="input__h1">login</h1>
+        </center>
+
+        <label className="input__labels" htmlFor="username">
+          username
+        </label>
         <input
           onChange={(e) => setUsername(e.target.value)}
           type="text"
           name="username"
           id="username"
         />
-        <label htmlFor="password">username</label>
+        <label className="input__labels" htmlFor="password">
+          password
+        </label>
         <input
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           name="password"
           id="password"
         />
+        <div className="login__inputs__buttons">
+          <div className="checkbox">
+            <input type="checkbox" />
+            <label htmlFor="">remember</label>
+          </div>
+          <button className="login__button" onClick={() => loginHandler()}>
+            login
+          </button>
+        </div>
       </div>
-      <button className="login__button" onClick={() => loginHandler()}>
-        login
-      </button>
     </div>
   );
 };
