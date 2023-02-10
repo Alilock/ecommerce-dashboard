@@ -1,29 +1,21 @@
-thead {
-  padding: 0 30px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-
-  tr {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
+.search__input {
+  background: #ffffff;
+  border: 1px solid #dad9d6;
+  border-radius: 10px;
+  outline: none;
 }
-
 .my__box {
-  padding: 20px 0px;
+  padding: 50px 0px;
   margin-bottom: 24px;
   border-radius: 30px;
   background-color: #fff;
   box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
   width: 100%;
 
+  .td__name {
+    width: 100px;
+  }
   tbody {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
     .image__td {
       width: 100px;
       height: 100px;
@@ -32,25 +24,21 @@ thead {
 
       img {
         width: 100%;
+        // height: 100%;
       }
     }
 
     tr {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      border: none;
-      display: flex;
-      align-items: center;
-
+      border-bottom: 1px solid #e3e3e3;
     }
   }
 }
+.edit__td {
+  display: flex;
 
-.action {
-  background-color: red;
-
-  i {
-    font-size: large;
+  .edit__pen__span {
+    .edit__pen {
+      object-position: center;
+    }
   }
 }

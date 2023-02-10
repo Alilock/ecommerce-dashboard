@@ -14,13 +14,13 @@ const sidebarNav = [
   {
     link: "./genders",
     section: "Genders",
-    icon: <i class="bx bx-male-female"></i>,
+    icon: <i className="bx bx-male-female"></i>,
     text: "Genders",
   },
   {
     link: "./categories",
     section: "Categories",
-    icon: <i class="bx bx-category-alt"></i>,
+    icon: <i className="bx bx-category-alt"></i>,
     text: "Categories",
   },
   {
@@ -52,6 +52,12 @@ const sidebarNav = [
     section: "settings",
     icon: <i className="bx bx-cog"></i>,
     text: "Settings",
+  },
+  {
+    link: "/about",
+    section: "about",
+    icon: <i className="bx bx-cog"></i>,
+    text: "About",
   },
 ];
 

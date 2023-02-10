@@ -17,11 +17,11 @@ const Categories = () => {
         <div className="products" >
             <div className='addbtn'>
                 <button className="border-0  bg-light" onClick={() => navigate('/CreateCategory')}>
-                    <i class='bx bx-folder-plus'></i>
+                    <i className='bx bx-folder-plus'></i>
 
                 </button></div>
             <div className="col-12 p-0">
-                <table class="table ">
+                <table className="table ">
                     <thead className="p-0">
                         <tr>
                             <th scope="col">#</th>
@@ -53,7 +53,7 @@ const Categories = () => {
                                                 <td>{g.parentName ? g.parentName : "This is Parent "}</td>
                                                 <td className="d-none d-md-block ">
                                                     <select
-                                                        class="form-select"
+                                                        className="form-select"
                                                         aria-label="Default select example"
                                                     >
                                                         {g.deleteDate ? (<>
